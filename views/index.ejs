@@ -1,0 +1,21 @@
+<% include header %>
+
+<div class="row">&nbsp;</div>
+
+ <% if (entries.length) { %>
+	
+	<div class="panel panel-info">
+  	 
+	  <% entries.forEach(function (entry) {  %>
+		<div class="panel-heading"><h3 class="panel-title"><%= entry.title %></h3></div>
+		 <div class="panel-body">
+			<img src='<%= entry.image %>' alt="" class="img-rounded" height="200" width="400"><br />
+			<p><%= entry.description %></p>
+			<pre>JSON data: <%= JSON.stringify(entry) %></pre>
+		 </div>
+	  <% }) %>
+	  
+	 </div>	
+ <% } %>
+
+<% include footer %>
