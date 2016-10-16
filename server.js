@@ -28,7 +28,14 @@ app.post('/scrape', function(req, res) {
 	}
 
 	var url = req.body.url;
-	console.log(url);
+	//console.log(url);
+	var options = {
+        url: url,
+        headers: {
+            'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+        }
+    };
+    
 	request(url, function(err, resp, html) {
 		var $ = cheerio.load(html);
 		var title = $('meta[property="og:title"]').attr('content');
